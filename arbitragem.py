@@ -33,6 +33,48 @@ import requests
 import time
 from datetime import datetime
 
+
+
+def GuardaRelatorioTempo(ciclo ,sentidoCiclo ,TempoDuracao):
+	data = datetime.now()
+	if sentidoCiclo == "NORMAL" :
+		NomeArquivo = "Tempo_Ciclo_Normal_"+ str(ciclo) + ".txt"
+		arquivo = open(NomeArquivo,"a")
+		arquivo.write(str(TempoDuracao) +  " : " + str(data) + "\n") 
+	elif sentidoCiclo == "INVERTIDO"
+		NomeArquivo = "Tempo_Ciclo_Invertido_"+ str(ciclo) + ".txt"
+		arquivo = open(NomeArquivo,"a")
+		arquivo.write(str(TempoDuracao) +  " : " + str(data) + "\n")
+pass 
+
+
+
+
+def iniciaContagem(ciclo , sentidoCiclo , ContagemCicloNormal , ContagemCicloInvertido):
+	if sentidoCiclo == "INVERTIDO" :
+		ContagemCicloInvertido[ciclo] = True
+		TempoInicioCicloInvertido[ciclo] = time.time()
+	elif sentidoCiclo == "NORMAL" :
+		ContagemCicloNormal = True 
+		TempoInicioCicloNormal[ciclo] = time.time()
+pass
+
+
+def FinalizaContagem(ciclo , sentidoCiclo , ContagemCicloNormal , ContagemCicloInvertido) :
+	if sentidoCiclo == "INVERTIDO" :
+		ContagemCicloInvertido = False 
+		TempoDuracao = time.time() - TempoInicioCicloInvertido[ciclo]  
+		GuardaRelatorioTempo(ciclo , sentidoCiclo , TempoDuracao)
+	elif sentidoCiclo == "NORMAL" :
+		ContagemCicloNormal = False 
+		TempoDuracao = time.time() - TempoInicioCicloNormal[ciclo]
+		GuardaRelatorioTempo(ciclo ,sentidoCiclo , TempoDuracao)
+pass
+
+
+
+
+
 def carregaPercussos():                 ############ Carrega os ciclos que estão em um arquivo txt
     p = open("Percussos.txt","r")
     texto = p.readlines()
