@@ -1,0 +1,2 @@
+# arbitragem
+algoritmo de arbitragem
