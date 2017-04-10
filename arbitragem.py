@@ -80,7 +80,7 @@ def PecorrePercusso(percussos, Cripto_M ,asks, bids, mercados, contTemp, minimoD
             arquivo = open(nomeArq,"a")
             tax = taxa(quantidadeOperacao)
             conteudo = "Bruto = " + str(v) + " taxas : " + str(tax) + " Lucro : " + str((v - tax)-100) + "\n" 
-            mensagem = " Lucro caminho : " + str((v - tax) - 100) + " " + str(percussos.index(percusso)) + " " + str(percussos.index(percusso))
+            mensagem = " Lucro caminho : " + str(percussos.index(percusso)) + " valor : " + str((v - tax) - 100)  
             enviar_luca = "https://api.telegram.org/bot377228323:AAHcU7LjQ2NaObxzyrKPYo1yBAqE8MLeDbE/sendMessage?text=" + mensagem + "&chat_id=86791355"
             enviar_henrique = "https://api.telegram.org/bot377228323:AAHcU7LjQ2NaObxzyrKPYo1yBAqE8MLeDbE/sendMessage?text=" + mensagem + "&chat_id=95778171"
             print("enviando porcentagem do lucro para telegram")
@@ -105,7 +105,7 @@ def PecorrePercusso(percussos, Cripto_M ,asks, bids, mercados, contTemp, minimoD
             arquivo = open(nomeArq,"a")
             tax = taxa(quantidadeOperacao)
             conteudo = "Invertido Bruto = " + str(v) + " taxas : " + str(tax) + " Lucro : " + str((v - tax) -100) + "\n" 
-            mensagem = " Lucro CaminhoInvertido "+ str(percussos.index(percusso)) + " " + str((v - tax) - 100) + " " + str(percussos.index(percusso)) + " valor ja retirado taxa"
+            mensagem = " Lucro CaminhoInvertido : "+ str(percussos.index(percusso)) + "valor : " + str((v - tax) - 100) 
             enviar_luca = "https://api.telegram.org/bot377228323:AAHcU7LjQ2NaObxzyrKPYo1yBAqE8MLeDbE/sendMessage?text=" + mensagem + "&chat_id=86791355"
             enviar_henrique = "https://api.telegram.org/bot377228323:AAHcU7LjQ2NaObxzyrKPYo1yBAqE8MLeDbE/sendMessage?text=" + mensagem + "&chat_id=95778171"
             print("enviando porcentagem do lucro para telegram")
